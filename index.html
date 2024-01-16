@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McDONALD'S</title>
+    <link rel="icon" type="icon/image" href="logo.png">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+</head>
+<body>
+    <header>
+        <nav class="nav-bar">
+            <li class="logo"><a href="#"><img src="logo.png" alt="logo"></a></li>
+            <input type="checkbox"  id="check">
+            <span class="menu">
+                <li class="active"><a href="#">Início</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Produtos</a></li>
+                <li><a href="#">Serviços</a></li>
+                <li><a href="#">Contato</a></li>
+
+                <label for="check" class="close-menu"><i class="fas fa-times"></i></label>
+            </span>
+            <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+        </nav>
+    </header>
+    <section class="wrapper">
+        <div class="left-col">
+            <h1 class="title">McDONALD'S</h1>
+            <p class="text">
+                Conheça o site oficial do McDonald's Brasil <br>e descubra as ofertas, produtos e restaurantes do Méqui.
+            </p>
+            <a href="https://www.mcdonalds.com.br/" class="order-btn">Saiba mais</a>
+        </div>
+        <ul class="icons">
+            <li><a href="https://www.facebook.com/McDonaldsBrasil"><img src="facebook.icon.png" alt=""></a></li>
+            <li><a href="https://www.instagram.com/mcdonalds/"><img src="instagram.png" alt=""></a></li>
+            <li><a href="https://twitter.com/McDonalds"><img src="twitter.png" alt=""></a></li>
+            </ul>
+        <div class="rigth-col">
+            <img src="burger.png" alt="#">
+        </div>
+    </section>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --primary-color: #de2614 ;
+    --white: #fff;
+    --color1: #181818 ;
+    --font1: 'Roboto', sans-serif;
+    --font2: 'Bebas Neue', cursive;
+}
+body {
+    font-family: var(--font1);
+}
+.nav-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    position: relative;
+    z-index: 9999;
+    background: var(--primary-color);
+    padding: 20px 60px;
+}
+.logo img {
+    width: 50px;
+    object-fit: cover;
+}
+.menu {display: flex;}
+.menu li {padding-left: 30px;}
+.menu li a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--white);
+    text-align: center;
+    transition: 0.15s ease;
+    position: relative;
+    text-transform: uppercase;
+}
+.menu li a::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--white);
+    transition: 0.15s ease;
+}
+.menu li a:hover::after , .menu li.active a::after {width: 100%;}
+.open-menu , .close-menu {
+    position: absolute;
+    color: var(--white);
+    cursor: pointer;
+    font-size: 2rem;
+    display: none;
+}
+.open-menu {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+.close-menu {
+    top: 20px;
+    right: 20px;
+
+}
+#check {display: none;}
+
+.wrapper {
+    background: var(--primary-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    padding: 0 60px;
+}
+.left-col , .rigth-col {flex: 1;}
+
+.rigth-col img {width: 100%;}
+
+.title {
+    font-size: 5rem;
+    text-transform: uppercase;
+    font-family: var(--font2);
+    letter-spacing: 2px;
+}
+.order-btn {
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 20px;
+    background: var(--white);
+    font-size: 1.2rem;
+    padding: 5px 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: 0.15s ease-in-out;
+    color: var(--primary-color);
+}
+.order-btn:hover {color: var(--color1);}
+
+/* Responsive page */
+@media(max-width: 610px){
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 300px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        background: var(--primary-color);
+        transition: 0.2s ease-in-out;
+        box-shadow:  0 0 6px rgba(0,0,0,14%);
+        z-index: 99999;
+    }
+    .menu li {margin-top: 40px;}
+    .menu li a {padding: 10px;}
+    .open-menu, .close-menu {
+        display: block;
+    }
+    #check:checked ~ .menu {
+        right: 0;
+    }
+}
+@media(max-width:820px){
+    .wrapper {
+        position: relative;
+        flex-direction: column-reverse;
+        padding: 0 20px;
+    }
+    .nav-bar {padding: 20px;}
+}
+.icons{
+         position:absolute;
+         bottom:40px;
+         left:100px;
+         display:flex;
+         justify-content:center;
+         align-items:center;
+     }  
+        .icons li{
+            list-style:none;
+        }
+        .icons li a{
+            display:inline-block;
+            margin-left:45px;
+            background:#222;
+            width:50px;
+            height:50px;
+            display:flex;
+            justify-content:center;
+            border-radius:50%;
+            transition: 0.3s ease-in-out;   
+        }
+        .icons li a:hover{
+            background:#e51e2a;
+            transform:translateY(-10px);
+        }
+        .icons li a img{
+            filter:invert(1);
+            transform:scale(0.5);
+        }
+    </style>
+</body>
+</html>
